@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Form</title>
+    <style>
+          body {
+            font-family: Avenir light;
+            margin: 0;
+            color:white;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .container {
+            padding: 40px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 0px 8px 0 rgb(223, 235, 223);
+        }
+
+
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+        .big {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.pinimg.com/736x/9f/e8/f1/9fe8f1acbb9ac478512b7a693837e799.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="big"></div>
+    <div class="container">
+        <h2> Documents</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
+           {% csrf_token %}
+
+           <label for="name">Name:</label>
+    <input type="text" name="name" placeholder="Enter name" id="name">
+    
+    <label for="tenth_certificate">Tenth Certificate:</label>
+    <input type="file" name="tenth_certificate" id="tenth_certificate">
+    
+    <label for="twelfth_certificate">Twelfth Certificate:</label>
+    <input type="file" name="twelfth_certificate" id="twelfth_certificate">
+    
+    <label for="degree_certificate">Degree Certificate:</label>
+    <input type="file" name="degree_certificate" id="degree_certificate">
+    
+    <label for="masters_certificate">Masters Certificate:</label>
+    <input type="file" name="masters_certificate" id="masters_certificate">
+    
+    <label for="aadhar_card">Aadhar Card:</label>
+    <input type="file" name="aadhar_card" id="aadhar_card">
+    
+    <label for="passport">Passport:</label>
+    <input type="file" name="passport" id="passport">
+    
+    <label for="pan_card">PAN Card:</label>
+    <input type="file" name="pan_card" id="pan_card">
+
+    <button type="submit">Submit</button>    </div>
+</body>
+</html>

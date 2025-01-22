@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Data</title>
+</head>
+<body>
+    {% if financialkey %}
+    <ul>
+       <li><strong>Name:</strong> {{ financialkey.Name }}</li>
+<li><strong>Bank Name:</strong> {{financialkey.Bank_name}}</li>
+<li><strong>Account number:</strong> {{ financialkey.Account_number }}</li>
+<li><strong>Type of Account :</strong> {{financialkey.Account_type }}</li>
+<li><strong>Investments:</strong> {{financialkey.Investments }}</li>
+<li><strong>Assets:</strong> {{ financialkey.Assets }}</li>
+<li><strong>Credit score:</strong> {{financialkey.Credit_score }}</li>
+
+       <!-- Edit button -->
+<button><a href="fupdate/{{ financialkey.id }}">Edit</a></button>
+
+<!-- Delete button as a form -->
+<form action="/fdelete/{{ financialkey.id }}" method="POST" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" onclick="return confirm('Are you sure you want to delete this data?');">Delete</button>
+</form>
+    </ul>
+    {% else %}
+        <p>No  data found for this user.</p>
+    {% endif %}
+</body>
+</html>
+

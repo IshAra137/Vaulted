@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Form</title>
+    <style>
+
+          body {
+            font-family: Avenir light;
+            margin: 0;
+            color:white;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .container {
+            padding: 40px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 0px 8px 0 rgb(223, 235, 223);
+        }
+
+
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+        .big {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.pinimg.com/736x/9f/e8/f1/9fe8f1acbb9ac478512b7a693837e799.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+ /* Aligning the label at the top */
+        .gender-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        /* Styling the radio buttons to be aligned in a single line */
+        .gender-options {
+            display: flex;
+            gap: 70px; /* Space between radio buttons */
+        }
+    </style>
+</head>
+<body>
+    <div class="big"></div>
+    <div class="container">
+        <h2>Medical Details</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
+           {% csrf_token %}
+
+            <label for="name"> Name:</label>
+            <input type="text"  name="name1" placeholder="Enter your name " required value="{{ updatekey.name }}">
+
+            <label for="height">Height:</label>
+            <input type="text"  name="name2" placeholder="Height in cm"  value="{{ updatekey.height }}">
+
+            <label for="weight">Weight:</label>
+            <input type="text"  name="name3" placeholder="weight in kg"  value="{{ updatekey.weight }}">
+
+            <label for="blood_group">Blood Group:</label>
+            <input type="text"  name="name4" placeholder="Blood Group" required value="{{ updatekey.blood_group }}">
+
+      <div class="gender-container">
+        <label for="gender">Gender:</label>
+        <div class="gender-options">
+            <label><input type="radio" name="name5" value="male"> Male</label>
+            <label><input type="radio" name="name5" value="Female"> Female</label>
+            <label><input type="radio" name="name5" value="others"> Others</label>
+        </div>
+    </div>
+
+
+            <label for="ill">Medical History:</label>
+            <input type="text"  name="name6" placeholder="any existing medical conditions"  value="{{ updatekey.ill }}">
+
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>
